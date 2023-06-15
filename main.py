@@ -9,6 +9,11 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 
+@app.get("/")
+async def root():
+    return {"message": "Server is running."}
+
+
 @app.post("/removebg")
 async def remove_background(file: UploadFile = File(...)):
     try:
