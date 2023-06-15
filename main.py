@@ -14,8 +14,11 @@ async def root():
     return {"message": "Server is running."}
 
 
-@app.post("/removebg")
+@app.post("/{path:path}")
 async def remove_background(file: UploadFile = File(...)):
+    if path != "removebg":
+        return JSONResponse(content={"message": "Not Found"}, status_code=404)
+
     try:
         contents = await file.read()
         img = Image.open(io.BytesIO(contents))
