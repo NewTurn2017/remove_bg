@@ -1,0 +1,4 @@
+﻿fastapi[all]==0.68.1
+rembg==2.0.43
+uvicorn
+python-multipart==0.0.5
